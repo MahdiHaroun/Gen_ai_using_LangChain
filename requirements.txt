@@ -22,3 +22,4 @@ fastapi
 uvicorn
 langserve[all]
 langchain-chroma 
+sqlalchemy
