@@ -13,7 +13,7 @@ async def ask_question(new_question: schemas.AskRequest, db: Session = Depends(g
     if not rag_state.conversational_rag_chain:
         raise HTTPException(status_code=400, detail="RAG not initialized. Call /rag/initRAG first.")
 
-    response = rag_state.conversational_rag_chain.invoke(
+    response = await rag_state.conversational_rag_chain.ainvoke(
         {"input": new_question.question},
         config={"configurable": {"session_id": new_question.session_id}}
     )
