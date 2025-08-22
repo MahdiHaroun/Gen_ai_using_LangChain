@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        body {
+            width: 400px;
+            padding: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            margin: 0;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            margin: -20px -20px 20px -20px;
+            text-align: center;
+            border-radius: 0 0 10px 10px;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #333;
+            font-size: 0.9rem;
+        }
+        
+        .api-input {
+            width: 100%;
+            padding: 8px 12px;
+            border: 2px solid #e1e5e9;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            box-sizing: border-box;
+        }
+        
+        .api-input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .text-input {
+            width: 100%;
+            height: 120px;
+            padding: 8px 12px;
+            border: 2px solid #e1e5e9;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-family: inherit;
+            resize: vertical;
+            box-sizing: border-box;
+        }
+        
+        .text-input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .btn {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .btn-secondary {
+            background: #f8f9fa;
+            color: #333;
+            border: 1px solid #e1e5e9;
+        }
+        
+        .btn:hover:not(:disabled) {
+            transform: translateY(-1px);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .error-message {
+            background-color: #fee;
+            border: 1px solid #fcc;
+            color: #c33;
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        .success-message {
+            background-color: #efe;
+            border: 1px solid #cfc;
+            color: #363;
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        .summary-result {
+            background: #f8f9fa;
+            border: 1px solid #e1e5e9;
+            border-radius: 8px;
+            padding: 12px;
+            margin-top: 15px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        
+        .summary-result h3 {
+            margin: 0 0 8px 0;
+            color: #333;
+            font-size: 1rem;
+        }
+        
+        .summary-content {
+            line-height: 1.4;
+            color: #555;
+            font-size: 0.85rem;
+            white-space: pre-wrap;
+        }
+        
+        .loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: #667eea;
+            font-weight: 500;
+            padding: 20px;
+        }
+        
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #e1e5e9;
+            border-top: 2px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>AI Text Summarizer</h1>
+    </div>
+    
+    <div class="form-group">
+        <label for="apiKey">Groq API Key:</label>
+        <input type="password" id="apiKey" class="api-input" placeholder="Enter your Groq API key">
+    </div>
+    
+    <div class="form-group">
+        <label for="textInput">Text to Summarize:</label>
+        <textarea id="textInput" class="text-input" placeholder="Paste text here or click 'Get Selected Text' to use highlighted text from the page"></textarea>
+    </div>
+    
+    <div class="button-group">
+        <button id="getSelectedText" class="btn btn-secondary">Get Selected Text</button>
+        <button id="summarizeBtn" class="btn btn-primary">Summarize</button>
+    </div>
+    
+    <div id="message"></div>
+    <div id="loading" class="loading" style="display: none;">
+        <div class="spinner"></div>
+        <span>Generating summary...</span>
+    </div>
+    <div id="summary" class="summary-result" style="display: none;">
+        <h3>Summary:</h3>
+        <div id="summaryContent" class="summary-content"></div>
+    </div>
+    
+    <script src="popup.js"></script>
+</body>
+</html>
