@@ -1,7 +1,7 @@
 from fastapi import FastAPI 
-from backend import models 
-from backend.database import engine  
-from backend.routers import init_rag, ask 
+import models 
+from database import engine  
+from routers import init_rag, ask 
 
 
 

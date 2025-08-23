@@ -13,8 +13,8 @@ from langchain_groq import ChatGroq
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_core.runnables.history import RunnableWithMessageHistory
 
-from backend.database import get_db
-from backend.routers import rag_state
+from database import get_db
+from routers import rag_state
 
 router = APIRouter(prefix="/rag", tags=["rag"])
 

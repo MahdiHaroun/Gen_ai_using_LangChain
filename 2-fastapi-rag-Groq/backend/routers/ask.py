@@ -1,9 +1,9 @@
 # routers/ask_router.py
 from fastapi import APIRouter, HTTPException, Depends 
 from sqlalchemy.orm import Session
-from backend.database import get_db
-from backend import schemas
-from backend.routers import rag_state
+from database import get_db
+import schemas
+from routers import rag_state
 
 
 router = APIRouter(prefix="/ask", tags=["ask"])

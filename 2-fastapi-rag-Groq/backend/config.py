@@ -16,7 +16,7 @@ class Settings(BaseSettings):
     GROQ_API: str
 
     class Config:
-        env_file = "backend/.env"
+        env_file = ".env"
 
 
 settings = Settings()
