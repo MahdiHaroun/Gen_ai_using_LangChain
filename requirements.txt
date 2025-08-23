@@ -24,3 +24,4 @@ langserve[all]
 langchain-chroma 
 sqlalchemy
 duckduckgo-search
+sqlite
