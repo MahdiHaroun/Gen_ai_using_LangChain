@@ -24,4 +24,8 @@ langserve[all]
 langchain-chroma 
 sqlalchemy
 duckduckgo-search
-sqlite
+validators==0.28.1
+unstructured
+pytube
+youtube-transcript-api==0.6.1
+yt_dlp
