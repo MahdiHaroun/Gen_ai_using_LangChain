@@ -70,3 +70,7 @@ async def summarize(new_summ: url):
     summary = await chain.ainvoke(documents)
 
     return {"summary": summary["output_text"], "source": source}
+
+
+
+# you can create the same instead of groq , with HF  , use the 8-huggingface+ langchain folder

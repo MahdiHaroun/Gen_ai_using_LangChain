@@ -29,3 +29,5 @@ unstructured
 pytube
 youtube-transcript-api==0.6.1
 yt_dlp
+huggingface_hub
+diffusers
