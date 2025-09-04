@@ -33,3 +33,5 @@ huggingface_hub
 diffusers
 boto3
 awscli
+crewai
+crewai_tools
