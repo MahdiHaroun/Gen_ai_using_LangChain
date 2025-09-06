@@ -35,3 +35,6 @@ boto3
 awscli
 crewai
 crewai_tools
+langgraph
+Ipython
+cassio
